@@ -1,0 +1,61 @@
+[
+    {
+        "name":"_default",
+        "feature_selector_ablation":false,
+        "feature_set_ablation":true,
+        "model":[
+                {
+                 "name":"logistic",
+                 "solver":["lbfgs"],
+                 "max_iter":[1000],
+                 "C":[1e-3,1e-2,0.01,1,10,100,1e3],
+                 "class_weight":["balanced",null],
+                 "random_state":[42]
+                },
+                {
+                 "name":"svm",
+                 "kernel":["linear","rbf"],
+                 "C":[1e-3,1e-2,0.01,1,10,100,1e3],
+                 "class_weight":["balanced",null],
+                 "random_state":[42]
+                 },
+                 {
+                    "name":"mlp",
+                    "hidden_layer_sizes":[[100]],
+                    "activation":["tanh","relu","logistic"],
+                    "alpha":[1e-5,1e-4,1e-3,1e-2,0.01,1,10,100,1e3],
+                    "batch_size":[40],
+                    "learning_rate":["adaptive"],
+                    "random_state":[42]
+                    }                     
+               ],
+        "features":{
+            "bag_of_words":{},
+            "tfidf":{},
+            "glove":{
+                "dim":[25, 50, 100, 200],
+                "pooling":["mean"]
+            },
+            "liwc":{
+                "norm":["matched","unmatched","max"]
+            },
+            "lda":{
+                "n_components":[25, 50, 100, 200],
+                "doc_topic_prior":[null],
+                "topic_word_prior":[null]
+            }
+        },
+        "standardize":[false, true],
+        "feature_selector":{
+            "kldivergence":{
+                "top_k":[10000,25000,50000,100000],
+                "min_support":[10],
+                "add_lambda":[0.01],
+                "beta":[0.1],
+                "keep_pronouns": [true],
+                "preserve_protected": [true],
+                "filter_stopwords": [true]
+            }
+        }
+    }
+]

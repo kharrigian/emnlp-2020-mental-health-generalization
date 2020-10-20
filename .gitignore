@@ -1,0 +1,52 @@
+
+## Artifacts
+*.pyc
+*pycache*
+*.DS_Store*
+*ipynb_checkpoints*
+
+## VS Code Workspace
+*workspace
+
+## Logs
+logs/*.err
+logs/*.out
+
+## Data
+*.joblib
+data/raw/twitter/clpsych*
+data/raw/twitter/qntfy_merged_labels.csv
+data/processed/*/*.json.gz
+data/raw/reddit/RSDD/
+data/raw/reddit/SMHDv1.1/
+!data/processed/README.md
+data/resources/*.txt
+data/raw/twitter/qntfy/
+data/results/*
+!data/results/README.md
+
+## Ignore Manuscripts/Writing
+documentation/
+
+## Credentials
+config.json
+
+## Models
+models/*/
+!models/README.md
+
+## Installation Artifacts
+*.egg-info*
+
+## Testing Artifacts
+*.coverage*
+*htmlcov*
+tests/data/20news-bydate_py3.pkz
+
+## Plots
+plots/*.png
+!plots/README.md
+
+## Temp Directory
+temp/
+grid_search_temp_*

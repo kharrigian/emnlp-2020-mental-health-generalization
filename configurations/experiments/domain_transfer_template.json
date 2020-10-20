@@ -1,0 +1,130 @@
+{
+    "experiment_name": "BalancedOnly",
+    "train_data": "clpsych_deduped",
+    "test_data": "clpsych_deduped",
+    "target_disorder":"depression",
+    "run_on_test": false,
+    "jobs": 8,
+    "random_seed": 42,
+    "kfolds": 5,
+    "stratified": true,
+    "test_size": 0.2,
+    "date_boundaries":{
+        "train":{
+            "min_date":"2011-01-01",
+            "max_date":"2013-12-01"
+        },
+        "test":{
+            "min_date":"2011-01-01",
+            "max_date":"2013-12-01"
+        }
+    },
+    "downsample":{
+        "train":false,
+        "test":false
+    },
+    "downsample_size":{
+        "train":580,
+        "test":580
+    },
+    "rebalance":{
+        "train":true,
+        "test":true
+    },
+    "class_ratio": {
+                    "train": [1, 1],
+                    "test": [1, 1]
+    },
+    "post_sampling":{
+        "train":{
+                "n_samples":null,
+                "randomized":false
+        },
+        "test":{
+                "n_samples":null,
+                "randomized":false
+        }
+    },
+    "drop_null": {
+                  "train":false,
+                  "test":false
+                },
+    "vocab_kwargs": {
+        "filter_negate": true,
+        "filter_upper": true,
+        "filter_punctuation": true,
+        "filter_numeric": true,
+        "filter_user_mentions": true,
+        "filter_url": true,
+        "filter_retweet": true,
+        "filter_stopwords": false,
+        "keep_pronouns": true,
+        "emoji_handling": null,
+        "filter_mh_subreddits":"all",
+        "filter_mh_terms":"smhd",
+        "max_tokens_per_document": null,
+        "max_documents_per_user": null,
+        "preserve_case": false,
+        "max_vocab_size": null,
+        "min_token_freq": 10,
+        "max_token_freq": null,
+        "ngrams": [1,1],
+        "binarize_counter": true,
+        "external_only": false,
+        "external_vocab": []
+    },
+    "grid_search": true,
+    "grid_search_kwargs":{
+        "config":"./configurations/hyperparameter_search/basic.json",
+        "test_size":0.2,
+        "dev_frac":0,
+        "dev_in_vocab":false,
+        "score_func":"f1",
+        "use_multiprocessing":false
+    },
+    "model": "logistic",
+    "model_kwargs": {
+        "C": 1e3,
+        "solver": "lbfgs",
+        "random_state":42,
+        "max_iter":1000,
+        "class_weight":"balanced"
+    },
+    "preprocessing_kwargs": {
+        "feature_flags":{
+                        "bag_of_words":false,
+                        "tfidf":true,
+                        "glove":false,
+                        "liwc":false,
+                        "lda":false
+                        },
+        "feature_kwargs":{
+                        "tfidf":{},
+                        "glove":{
+                                "dim":200,
+                                "pooling":"mean"
+                        },
+                        "liwc":{
+                                "norm":"matched"
+                               },
+                        "lda":{
+                                "n_components":50,
+                                "doc_topic_prior":null,
+                                "topic_word_prior":null,
+                                "random_state":42
+                        }
+                    },
+        "standardize":true
+    },
+    "feature_selector": null,
+    "feature_selection_kwargs": {
+        "top_k": 20000,
+        "min_support": 10,
+        "stopwords": null,
+        "add_lambda": 0.01,
+        "beta": 0.1,
+        "keep_pronouns": false,
+        "preserve_protected": false,
+        "filter_stopwords": false
+    }
+}
