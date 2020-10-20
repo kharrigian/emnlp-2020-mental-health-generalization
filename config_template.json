@@ -1,0 +1,15 @@
+{
+    "reddit": {
+        "client_id": "CLIENT_ID",
+        "client_secret": "CLIENT_SECRET",
+        "username": "REDDIT_USERNAME",
+        "password": "REDDIT_PASSWORD",
+        "user_agent": "APP_USER_AGENT"
+    },
+    "twitter":{
+        "api_key":"API_KEY",
+        "api_secret_key":"API_SECRET_KEY",
+        "access_token":"ACCESS_TOKEN",
+        "access_secret_token":"SECRET_ACCESS_TOKEN"
+    }
+}
