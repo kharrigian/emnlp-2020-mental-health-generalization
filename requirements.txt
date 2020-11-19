@@ -18,3 +18,4 @@ tweepy>=3.8.0
 demoji>=0.2.1
 umap-learn>=0.4.3
 cvxopt>=1.2.5
+retriever @ git+ssh://git@github.com/kharrigian/retriever@main#egg=retriever
