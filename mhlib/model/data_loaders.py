@@ -564,10 +564,10 @@ class LoadProcessedData(object):
                 d[tt] = list(filter(lambda i: i!="<RETWEET>", d[tt]))
             ## Filter Hashtags
             if hasattr(self, "filter_hashtag") and self.filter_hashtag:
-                d[tt] = self._remove_hashtags(tokens)
+                d[tt] = self._remove_hashtags(d[tt])
             else:
                 if hasattr(self, "strip_hashtag") and self.strip_hashtag:
-                    d[tt] = self._strip_hashtags(tokens)
+                    d[tt] = self._strip_hashtags(d[tt])
             ## Max Tokens
             if hasattr(self, "max_tokens_per_document") and self.max_tokens_per_document is not None:
                 d[tt] = d[tt][:min(len(d[tt]), self.max_tokens_per_document)]
